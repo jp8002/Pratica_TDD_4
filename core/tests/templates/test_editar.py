@@ -36,7 +36,6 @@ class Editar_Get_Sem_Contatos_Test(TestCase):
 class Editar_Get_Com_Contatos_Test(TestCase):
     def setUp(self):
         self.client = Client()
-        self.client = Client()
         new_user = User.objects.create(username='admin', email='aluno@fatec.sp.gov.br')
         new_user.set_password('123mudar')
         new_user.save()
@@ -61,17 +60,16 @@ class Editar_Get_Com_Contatos_Test(TestCase):
         self.assertTemplateUsed(self.resp, 'editar.html')
 
     def test_json_status_ok(self):
-        self.assertEqual(self.respJsonOK.status_code, 200)
+        self.assertEqual(self.respJsonOK.status_code, HTTPStatus.OK)
 
     def test_json_status_bad(self):
-        self.assertEqual(self.respJsonBad.status_code, 400)
+        self.assertEqual(self.respJsonBad.status_code, HTTPStatus.BAD_REQUEST)
 
     def test_com_contatos(self):
         self.assertContains(self.resp, '<option value="1">1 - João da Silva</option>')
 
 class Editar_Post_Sucess_Test(TestCase):
     def setUp(self):
-        self.client = Client()
         self.client = Client()
         new_user = User.objects.create(username='admin', email='aluno@fatec.sp.gov.br')
         new_user.set_password('123mudar')

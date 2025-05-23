@@ -32,11 +32,18 @@
 
     .editar-icon {
       font-size: 3rem;
-      color: #0d6efd;
+      color: #ffc107;
     }
 
     .listar-card{
         overflow: hidden;
+    }
+
+    #buttons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 1rem;
     }
 
 
@@ -96,9 +103,22 @@
                         <textarea name="observacao" id="observacaoField" class="form-control" aria-label="With textarea" disabled></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary w-100 mt-3">
-                        <i class="fas fa-plus me-2"></i> Atualizar
-                    </button>
+                    <div id="buttons">
+                        <div>
+                            <button type="button" onclick="location.href='{% url "home" %}'" class="btn btn-danger w-100 mt-3" >
+                                <i class="fa-regular fa-square-caret-left"></i> Voltar
+                             </button>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-primary w-100 mt-3">
+                                <i class="fas fa-pen-to-square me-2"></i> Atualizar
+                            </button>
+                        </div>
+
+                    </div>
+
+
                 </form>
             </div>
         </div>

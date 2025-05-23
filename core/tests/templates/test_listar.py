@@ -43,7 +43,7 @@ class TestListarGet(TestCase):
         self.resp = self.client.get(reverse("listar"))
 
     def test_response(self):
-        self.assertEqual(200, self.resp.status_code)
+        self.assertEqual(HTTPStatus.OK, self.resp.status_code)
 
     def test_template_used(self):
         self.assertTemplateUsed(self.resp, "listar.html")

@@ -43,10 +43,8 @@ def cadastrar(request):
     if request.method == "POST":
         form = AgendaForm(request.POST)
         if form.is_valid():
-            try:
-                form.save()
-            except:
-                raise Exception("Não foi possível salver o contato")
+            form.save()
+
         else:
             context['form'] = form
 

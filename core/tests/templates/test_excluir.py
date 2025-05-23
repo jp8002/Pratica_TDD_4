@@ -16,7 +16,7 @@ class Excluir_Get_Bad_Test(TestCase):
         self.assertEqual(self.resp.status_code, HTTPStatus.FOUND)
 
     def test_excluir_redirect(self):
-        self.assertRedirects(self.resp, reverse('login') + "?next=/excluir/", status_code=302, target_status_code=200,fetch_redirect_response=True)
+        self.assertRedirects(self.resp, reverse('login') + "?next=/excluir/", status_code=HTTPStatus.FOUND, target_status_code=HTTPStatus.OK,fetch_redirect_response=True)
 
 class Excluir_Get_OK_Empty_Test(TestCase):
     def setUp(self):

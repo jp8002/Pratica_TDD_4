@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.test import TestCase, Client
 from django.urls import reverse
+from http import HTTPStatus
 
 
 class CadastrarGetRedirectTest(TestCase):
@@ -9,7 +10,7 @@ class CadastrarGetRedirectTest(TestCase):
         self.resp = self.client.get(reverse("cadastrar"))
 
     def test_template_cadastrar_redirect(self):
-        self.assertRedirects(self.resp, reverse('login')+"?next=/cadastrar/", status_code=302, target_status_code=200,fetch_redirect_response=True)
+        self.assertRedirects(self.resp, reverse('login')+"?next=/cadastrar/", status_code=HTTPStatus.FOUND, target_status_code=HTTPStatus.OK,fetch_redirect_response=True)
 
 class CadastrarGetTest(TestCase):
     def setUp(self):
@@ -21,7 +22,7 @@ class CadastrarGetTest(TestCase):
         self.resp = self.client.get(reverse("cadastrar"))
 
     def test_response(self):
-        self.assertEqual(self.resp.status_code, 200)
+        self.assertEqual(self.resp.status_code, HTTPStatus.OK)
 
     def test_template_cadastrar(self):
         self.assertTemplateUsed(self.resp, 'cadastrar.html')
@@ -48,7 +49,7 @@ class CadastrarPostTest(TestCase):
         self.assertTemplateUsed(self.resp, 'cadastrar.html')
 
     def test_response(self):
-        self.assertEqual(self.resp.status_code, 200)
+        self.assertEqual(self.resp.status_code, HTTPStatus.OK)
 
     def test_post_sucess(self):
         self.assertNotContains(self.resp, '<div class="alert alert-primary"')

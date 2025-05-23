@@ -51,6 +51,13 @@
     .btn-back {
       margin-top: 1rem;
     }
+
+    #buttons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -88,9 +95,21 @@
                         <textarea name="observacao" class="form-control" aria-label="With textarea"></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary w-100 mt-3">
-                        <i class="fas fa-plus me-2"></i> Adicionar
-                      </button>
+                    <div id="buttons">
+                        <div>
+                            <button type="button" onclick="location.href='{% url "home" %}'" class="btn btn-danger w-100 mt-3" >
+                                <i class="fa-regular fa-square-caret-left"></i> Voltar
+                             </button>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-primary w-100 mt-3">
+                                <i class="fas fa-plus me-2"></i> Adicionar
+                            </button>
+                        </div>
+
+                    </div>
+
 
                 </form>
             </div>

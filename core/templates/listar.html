@@ -34,7 +34,7 @@
 
     .listar-icon {
       font-size: 3rem;
-      color: #0d6efd;
+      color: #6c757d;
     }
 
     .listar-card{
@@ -48,6 +48,10 @@
     .btn-back {
       margin-top: 1rem;
     }
+    #btn-sair{
+        max-width: 10rem;
+    }
+
   </style>
 </head>
 <body>
@@ -82,6 +86,13 @@
                     </div>
                 {% endif %}
                 </table>
+
+
+                <button id="btn-sair" type="button" onclick="location.href='{% url "home" %}'" class="btn btn-danger w-100 mt-3" >
+                    <i class="fa-regular fa-square-caret-left"></i> Voltar
+                 </button>
+
+
             </div>
         </div>
     </div>
